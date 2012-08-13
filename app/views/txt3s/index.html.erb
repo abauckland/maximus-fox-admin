@@ -1,0 +1,29 @@
+<div data-role="header">
+  <%= link_to "log out", log_out_path %>
+	<h1>Text Type 3</h1>
+		<%= link_to "Menu", menu_path %>	
+</div>
+
+<div data-role="content">
+	<ul data-role="listview" data-inset="true" class="custom_list" >
+
+<% @txts.each do |txt| %>
+    			<li>   			    	    		
+					<div class="text_content">
+						<%= txt.text %>	
+					</div>
+					<div class="test2">        
+						<span class="ui-li-count" style="color: #FFFFFF; background: #00407f; font-size:11px;"><%= txt.speclines.count %></span>
+						<span class="ui-li-count" style="color: #FFFFFF; background: #90307f; font-size:11px;"><%= txt.changes.count %></span>
+ 					</div>
+        			<div class="test3">
+        				<%= link_to '', edit_txt3_path(txt), {"data-role"=>"button", "data-inline"=>"true", "data-icon" => "edit", "data-iconpos"=>"notext", "data-theme"=>"b", "class" => "edit_button"}%>					
+						<%= link_to '', txt3_path(txt), {:confirm => 'Are you sure?', :method => :delete, "data-role"=>"button", "data-inline"=>"true", "data-icon" => "delete", "data-iconpos"=>"notext", "data-theme"=> "c"}%>          
+		
+					</div> 		
+				</li>						
+<% end %> 
+	</ul>
+</div>
+
+

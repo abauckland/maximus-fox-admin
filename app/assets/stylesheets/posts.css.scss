@@ -1,0 +1,42 @@
+// Place all the styles related to the Posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+.custom_list .ui-li-count{
+  position: absolute;
+  top: 50%;
+  right: 50px;
+    border: 0px;
+}
+.custom_list .ui-li-count:nth-child(2){
+  position: absolute;
+  top: 50%;
+  right: 100px;
+    border: 0px;
+}
+.custom_list .ui-li-count:nth-child(3){
+  position: absolute;
+  top: 50%;
+  right: 125px;
+  border: 0px;
+}
+
+.custom_list .ui-btn:nth-child(2){
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    margin-top: -0.8em;
+}
+
+.custom_list .ui-btn:nth-child(1){
+    position: absolute;
+    top: 50%;
+    right: 50px;
+    margin-top : -0.8em;
+}
+
+#text_content{
+  font-size: 11px;  
+}

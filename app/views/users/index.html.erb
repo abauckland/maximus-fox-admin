@@ -1,0 +1,22 @@
+<div data-role="header">
+  <%= link_to "log out", log_out_path, "data-theme"=>"b" %>
+  <h1>Unlock Users</h1>
+	<%= link_to "Menu", menu_path, "data-theme"=>"b" %>	
+</div>
+
+<div data-role="content">
+	<ul data-role="listview" data-inset="true">
+
+		<% @users.each do |user| %>
+    		<li data-icon="check">   			    	    		
+				<%= link_to '', nil, {:confirm => 'Are you sure?', "data-role"=>"button", "data-theme"=> "c"} do %>          		
+					<h3><%= user.first_name %> <%= user.surname %></h3>
+					<p><%= user.email %></p>
+					<p><%= user.company.company_name %></p>
+				<% end %> 
+			</li>						
+		<% end %> 
+	</ul>
+</div>
+
+

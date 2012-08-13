@@ -1,0 +1,21 @@
+<div data-role="header">
+	<h1><%= @post.title %></h1>
+<%= link_to 'Back', posts_path %>
+<%= link_to 'Edit', edit_post_path(@post) %>
+</div>
+
+<div data-role="content">
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @post.title %>
+</p>
+
+<p>
+  <b>Text:</b>
+  <%= @post.text %>
+</p>
+
+</div>
+

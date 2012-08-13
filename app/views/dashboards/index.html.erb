@@ -1,0 +1,21 @@
+<div data-role="header">
+  <%= link_to "log out", log_out_path, "data-theme"=>"b" %>
+  <h1>Dashboard</h1>
+	<%= link_to "Menu", menu_path, "data-theme"=>"b" %>
+	
+</div>
+
+
+ 
+<div data-role="content">
+
+<ul>
+	<li><%= number_with_delimiter(@speclines, :delimiter => ',')%></li>
+	<li><%= number_with_delimiter(@changes, :delimiter => ',')%></li>
+	<li><%= @posts %></li>	
+	<li><%= number_with_delimiter(@txt3s, :delimiter => ',')%></li>
+	<li><%= number_with_delimiter(@txt4s, :delimiter => ',')%></li>
+</ul>
+
+
+</div>

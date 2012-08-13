@@ -1,0 +1,27 @@
+<div data-role="header">
+  <%= link_to "log out", log_out_path, "data-theme"=>"b" %>
+  <h1>Check Comments</h1>
+	<%= link_to "Menu", menu_path, "data-theme"=>"b" %>
+</div>
+
+<div data-role="content">
+	<ul data-role="listview" data-inset="true" class="custom_list" >
+
+		<% @comments.each do |comment| %>
+    		<li>
+    			
+    			<div class="text_content">
+					<h3><%= comment.post.title %></h3>
+					<p><%= comment.text %></p>
+					<p><%= comment.email %></p>
+				</div>   			    	    
+        		<div class="test3">
+        			<%= link_to '', checked_comment_path(comment), {"data-role"=>"button", "data-inline"=>"true", "data-icon" => "check", "data-iconpos"=>"notext", "data-theme"=>"b", "class" => "edit_button"}%>					
+					<%= link_to '', comment_path(comment), {:confirm => 'Are you sure?', :method => :delete, "data-role"=>"button", "data-inline"=>"true", "data-icon" => "delete", "data-iconpos"=>"notext", "data-theme"=> "c"}%>          		
+				</div> 	
+			</li>						
+		<% end %> 
+	</ul>
+</div>
+
+

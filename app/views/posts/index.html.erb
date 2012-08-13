@@ -1,0 +1,25 @@
+<div data-role="header">
+  <%= link_to 'Back', menu_path %>
+  <h1>Posts</h1>
+  <%= link_to 'Add', new_post_path, "data-icon" => "plus", "class" => "ui-btn-right" %>
+
+</div>
+ 
+<div data-role="content">
+  <ul data-role="listview" data-inset="true" class="custom_list" >
+    <% @posts.each do |post| %>
+    
+    	<li>    			
+    		<div class="text_content">
+				<h3><%= post.title %></h3>
+			</div>
+        <div class="test3">
+        	<%= link_to '', new_post_path, {"data-role"=>"button", "data-inline"=>"true", "data-icon" => "edit", "data-iconpos"=>"notext", "data-theme"=>"b", "class" => "edit_button"}%>
+			<%= link_to '', new_post_path, {"data-role"=>"button", "data-inline"=>"true", "data-icon" => "delete", "data-iconpos"=>"notext", "data-theme"=>"b", "class" => "delete_button"}%>          
+		</div> 		
+ 	</div>	
+    </li>
+    <% end %>
+  </ul>
+</div>
+

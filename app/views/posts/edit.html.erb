@@ -1,0 +1,10 @@
+<div data-role="header">
+	<h1>Editing <%= @post.title %></h1>
+<%= link_to 'Back', posts_path %>
+<%= link_to 'Show', @post %>
+</div>
+
+<div data-role="content">
+<%= render 'form' %>
+</div>
+

@@ -1,0 +1,19 @@
+<div data-role="header">
+  <%= link_to "Back", menu_path, "data-theme"=>"b" %>
+  <h1>Upload Guidance PDF</h1>
+
+	
+</div>
+<div data-role="content">
+<%= form_for @guidepdf do |f| %>
+                             
+<%= select_tag "id", options_from_collection_for_select(@subsections, :id, :subsection_full_code_and_title) %>    
+
+<%= f.file_field "file", "data-role"=>"button"%>
+
+<%= f.submit%>
+
+<% end %>
+
+<%= @d %>
+</div>

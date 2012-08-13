@@ -1,0 +1,63 @@
+<div data-role="header">
+  <%= link_to "log out", log_out_path, "data-theme"=>"b" %>
+  <h1>Menu</h1>
+	<%= link_to "Dashboard", dashboards_path, "data-icon" => "home"%>
+</div>
+ 
+<div data-role="content">
+        
+        
+        <div data-role="collapsible-set" class="ng-collapsibleset">
+            <div data-role="collapsible">
+                <h3>Posts</h3>                
+                <div id="divAbnormalPaq" style="margin-top: 5px;">
+                <ul data-role="listview" data-theme="b">
+                    <li><%= link_to 'Edit Posts', posts_path %></li>
+                    <li><%= link_to 'Check Comments', comments_path %></li>
+                </ul> 
+                </div>
+            </div>
+            
+            <div data-role="collapsible">
+                <h3>Templates</h3>                
+                <div id="divAbnormalPaq" style="margin-top: 5px;">
+                <ul data-role="listview" data-theme="b">
+                    <li><%= link_to 'Upload Template', new_template_path %></li>
+                </ul> 
+                </div>
+            </div>
+            
+            <div data-role="collapsible">
+                <h3>Guides</h3>                
+                <div id="divAbnormalPaq" style="margin-top: 5px;">
+                <ul data-role="listview" data-theme="b">
+                    <li><%= link_to 'Upload Guidance PDF', new_guidepdf_path %></li>
+                    <li><%= link_to 'Add Clause Guidance Notes', nil %></li>
+                </ul> 
+                </div>
+            </div>
+            
+           <div data-role="collapsible">
+                <h3>Accounts</h3>                
+                <div id="divAbnormalPaq" style="margin-top: 5px;">
+                <ul data-role="listview" data-theme="b">
+                    <li><%= link_to 'Manage Licences', accounts_path %></li>
+                    <li><%= link_to 'Unlock Users', users_path %></li>
+                </ul> 
+                </div>
+            </div>
+            
+           <div data-role="collapsible">
+                <h3>Unused Data</h3>                
+                <div id="divAbnormalPaq" style="margin-top: 5px;">
+                <ul data-role="listview" data-theme="b">
+                    <li><%= link_to 'Clause Titles', nil %></li>
+                    <li><%= link_to 'Text Type 3', txt3s_path %></li>
+                    <li><%= link_to 'Text Type 4', txt4s_path %></li>
+                    <li><%= link_to 'Text Type 5', nil %></li>
+                </ul> 
+                </div>
+            </div>            
+       </div>
+</div>
+

@@ -1,0 +1,30 @@
+<div data-role="header">
+  <%= link_to "log out", log_out_path %>
+  <h1>Posts</h1>
+	<%= link_to "Menu", menu_path %>
+
+</div>
+ 
+<div data-role="content">
+  <ul data-role="listview" data-inset="true" class="custom_list" >
+    <% @accounts.each do |account| %>
+    
+    	<li>    			
+    		<div class="text_content">
+				<h3><%= account.company.company_name %></h3>
+			</div>
+			
+		<div class="test2">        
+			<span class="ui-li-count" style="color: #FFFFFF; background: #00407f; font-size:11px;"><%= account.no_licence %></span>
+			<span class="ui-li-count" style="color: #FFFFFF; background: #90307f; font-size:11px;"><%= active_licences(account) %></span>
+ 		</div>
+        <div class="test3">
+        	<%= link_to '', nil, {"data-role"=>"button", "data-inline"=>"true", "data-icon" => "plus", "data-iconpos"=>"notext", "data-theme"=>"b", "class" => "edit_button"}%>
+			<%= link_to '', nil, {"data-role"=>"button", "data-inline"=>"true", "data-icon" => "minus", "data-iconpos"=>"notext", "data-theme"=>"b", "class" => "delete_button"}%>          
+		</div> 		
+
+    </li>
+    <% end %>
+  </ul>
+</div>
+

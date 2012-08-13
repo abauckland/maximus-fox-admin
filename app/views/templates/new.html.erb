@@ -1,0 +1,34 @@
+<div data-role="header">
+  <%= link_to 'Back', menu_path %>
+  <h1>Load Template</h1>
+</div>
+ 
+<div data-role="content">
+
+<%= form_tag(:action => 'create') do %>
+<div id="home">
+      
+      <p>
+        <label>Select Project:</label>
+        <%= select_tag "selected_project", options_from_collection_for_select(@projects, :id, :project_code_and_title) %>           
+      </p>       
+      <p>
+        <label>Select Template File:</label>
+        <%= file_field_tag :csv_file  %>
+      </p>
+      
+      
+      <% if !@csv.blank?%>
+      
+      <%= @csv %>
+      
+ <% end %>     
+      
+      
+       
+
+<%= submit_tag "Upload"%>
+</div>
+<% end %>
+
+</div>
