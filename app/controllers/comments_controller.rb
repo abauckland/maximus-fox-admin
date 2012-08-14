@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
 
   def index  
-    @comments = Comment.includes(:account, :users => [:licences]).all
+    @comments = Comment.includes(:post).where(:checked => false)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -10,9 +10,9 @@ class CommentsController < ApplicationController
   end
 
 def checked
-     @comment = Comment.find(params[:id])
-    @comment.update_attributes(:checked => true)
-
+    @comment = Comment.find(params[:id])
+    @comment.checked = true
+    @comment.save
     respond_to do |format|
       format.html { redirect_to comments_url }
       format.json { head :ok }

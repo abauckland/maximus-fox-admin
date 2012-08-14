@@ -16,6 +16,8 @@ MobileTest::Application.routes.draw do
   resources :guidenotes
   resources :txt3s
   resources :txt4s
+  resources :txt5s
+  resources :clausetitles
   resources :templates
   resources :users
   resources :accounts  

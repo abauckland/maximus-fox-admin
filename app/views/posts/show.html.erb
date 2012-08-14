@@ -7,14 +7,12 @@
 <div data-role="content">
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Title:</b>
+<h2>
   <%= @post.title %>
-</p>
+</h2>
 
 <p>
-  <b>Text:</b>
-  <%= @post.text %>
+  <%= @post.text.html_safe %>
 </p>
 
 </div>

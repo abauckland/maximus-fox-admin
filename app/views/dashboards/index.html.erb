@@ -6,15 +6,76 @@
 </div>
 
 
- 
 <div data-role="content">
 
-<ul>
-	<li><%= number_with_delimiter(@speclines, :delimiter => ',')%></li>
-	<li><%= number_with_delimiter(@changes, :delimiter => ',')%></li>
-	<li><%= @posts %></li>	
-	<li><%= number_with_delimiter(@txt3s, :delimiter => ',')%></li>
-	<li><%= number_with_delimiter(@txt4s, :delimiter => ',')%></li>
+<ul data-role="listview" data-inset="true" class="custom_list" >
+	<li>		
+		<div class="text_content">Specification Lines</div>
+		<div class="test2">        
+			<span class="ui-li-count" style="color: #FFFFFF; background: #00407f; font-size:11px;"><%= number_with_delimiter(@speclines, :delimiter => ',')%></span>
+			<span class="ui-li-count" style="color: #FFFFFF; background: #90307f; font-size:11px;"><%= number_with_delimiter(@recent_speclines, :delimiter => ',')%></span>
+		</div>		
+	</li>
+	<li>
+		<div class="text_content">Changed Lines</div>
+		<div class="test2">        
+			<span class="ui-li-count" style="color: #FFFFFF; background: #00407f; font-size:11px;"><%= number_with_delimiter(@changes, :delimiter => ',')%></span>
+			<span class="ui-li-count" style="color: #FFFFFF; background: #90307f; font-size:11px;"><%= number_with_delimiter(@recent_changes, :delimiter => ',')%></span>
+		</div>			
+	<li>
+		<div class="text_content">Posts</div>
+		<div class="test2">        
+			<span class="ui-li-count" style="color: #FFFFFF; background: #00407f; font-size:11px;"><%= number_with_delimiter(@posts, :delimiter => ',')%></span>
+			<span class="ui-li-count" style="color: #FFFFFF; background: #90307f; font-size:11px;"><%= number_with_delimiter(@recent_posts, :delimiter => ',')%></span>
+		</div>					
+	</li>
+	<li>
+		<div class="text_content">Comments</div>
+		<div class="test2">        
+			<span class="ui-li-count" style="color: #FFFFFF; background: #00407f; font-size:11px;"><%= number_with_delimiter(@comments, :delimiter => ',')%></span>
+			<span class="ui-li-count" style="color: #FFFFFF; background: #90307f; font-size:11px;"><%= number_with_delimiter(@recent_comments, :delimiter => ',')%></span>
+		</div>					
+	</li>
+	<li>
+		<div class="text_content">Accounts</div>
+		<div class="test2">        
+			<span class="ui-li-count" style="color: #FFFFFF; background: #00407f; font-size:11px;"><%= number_with_delimiter(@accounts, :delimiter => ',')%></span>
+		</div>					
+	</li>
+	<li>
+		<div class="text_content">Users</div>
+		<div class="test2">        
+			<span class="ui-li-count" style="color: #FFFFFF; background: #00407f; font-size:11px;"><%= number_with_delimiter(@users, :delimiter => ',')%></span>
+			<span class="ui-li-count" style="color: #FFFFFF; background: #90307f; font-size:11px;"><%= number_with_delimiter(@recent_users, :delimiter => ',')%></span>
+		</div>					
+	</li>
+	<li>
+		<div class="text_content">Clause Titles</div>
+		<div class="test2">        
+			<span class="ui-li-count" style="color: #FFFFFF; background: #00407f; font-size:11px;"><%= number_with_delimiter(@clausetitles, :delimiter => ',')%></span>
+		</div>		
+	</li>	
+	<li>
+		<div class="text_content">Txt3 Records</div>
+		<div class="test2">        
+			<span class="ui-li-count" style="color: #FFFFFF; background: #00407f; font-size:11px;"><%= number_with_delimiter(@txt3s, :delimiter => ',')%></span>
+			<span class="ui-li-count" style="color: #FFFFFF; background: #90307f; font-size:11px;"><%= number_with_delimiter(@recent_txt3s, :delimiter => ',')%></span>
+		</div>		
+	</li>
+	<li>
+		<div class="text_content">Txt4 Records</div>
+		<div class="test2">        
+			<span class="ui-li-count" style="color: #FFFFFF; background: #00407f; font-size:11px;"><%= number_with_delimiter(@txt4s, :delimiter => ',')%></span>
+			<span class="ui-li-count" style="color: #FFFFFF; background: #90307f; font-size:11px;"><%= number_with_delimiter(@recent_txt4s, :delimiter => ',')%></span>
+		</div>		
+	</li>
+	<li>
+		<div class="text_content">Txt5 Records</div>
+		<div class="test2">        
+			<span class="ui-li-count" style="color: #FFFFFF; background: #00407f; font-size:11px;"><%= number_with_delimiter(@txt5s, :delimiter => ',')%></span>
+			<span class="ui-li-count" style="color: #FFFFFF; background: #90307f; font-size:11px;"><%= number_with_delimiter(@recent_txt5s, :delimiter => ',')%></span>
+		</div>		
+	</li>
 </ul>
 
 

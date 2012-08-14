@@ -1,5 +1,5 @@
 <div data-role="header">
-  <%= link_to "log out", log_out_path, "data-theme"=>"b" %>
+  <%= link_to "log out", log_out_path %>
   <h1>Menu</h1>
 	<%= link_to "Dashboard", dashboards_path, "data-icon" => "home"%>
 </div>
@@ -51,10 +51,10 @@
                 <h3>Unused Data</h3>                
                 <div id="divAbnormalPaq" style="margin-top: 5px;">
                 <ul data-role="listview" data-theme="b">
-                    <li><%= link_to 'Clause Titles', nil %></li>
+                    <li><%= link_to 'Clause Titles', clausetitles_path %></li>
                     <li><%= link_to 'Text Type 3', txt3s_path %></li>
                     <li><%= link_to 'Text Type 4', txt4s_path %></li>
-                    <li><%= link_to 'Text Type 5', nil %></li>
+                    <li><%= link_to 'Text Type 5', txt5s_path %></li>
                 </ul> 
                 </div>
             </div>            

@@ -1,0 +1,25 @@
+<div data-role="header">
+	  <%= link_to "log out", log_out_path %>
+	<h1>Clause Titles</h1>
+		<%= link_to "Menu", menu_path %>	
+</div>
+
+<div data-role="content">
+	<ul data-role="listview" data-inset="true" class="custom_list" >
+
+<% @clausetitles.each do |clausetitle| %>
+    			<li>   			    	    		
+					<div id="text_content" style="width:500px; font-size:11px">
+						<%= clausetitle.text %>	
+					</div>
+					       
+						<span class="ui-li-count" style="color: #FFFFFF; background: #00507f; font-size:11px;"><%= clausetitle.clauses.count %></span>
+ 					<div> 
+ 						<%= link_to '', clausetitle_path(clausetitle), {:confirm => 'Are you sure?', :method => :delete, "data-role"=>"button", "data-inline"=>"true", "data-icon" => "delete", "data-iconpos"=>"notext", "data-theme"=> "c"}%>          		
+					</div> 		
+				</li>						
+<% end %> 
+	</ul>
+</div>
+
+

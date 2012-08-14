@@ -14,8 +14,8 @@
 				<h3><%= post.title %></h3>
 			</div>
         <div class="test3">
-        	<%= link_to '', new_post_path, {"data-role"=>"button", "data-inline"=>"true", "data-icon" => "edit", "data-iconpos"=>"notext", "data-theme"=>"b", "class" => "edit_button"}%>
-			<%= link_to '', new_post_path, {"data-role"=>"button", "data-inline"=>"true", "data-icon" => "delete", "data-iconpos"=>"notext", "data-theme"=>"b", "class" => "delete_button"}%>          
+        	<%= link_to '', edit_post_path(post), {"data-role"=>"button", "data-inline"=>"true", "data-icon" => "edit", "data-iconpos"=>"notext", "data-theme"=>"b", "class" => "edit_button"}%>
+			<%= link_to '', post_path(post), {:confirm => 'Are you sure?', :method => :delete, "data-role"=>"button", "data-inline"=>"true", "data-icon" => "delete", "data-iconpos"=>"notext", "data-theme"=>"b", "class" => "delete_button"}%>          
 		</div> 		
  	</div>	
     </li>

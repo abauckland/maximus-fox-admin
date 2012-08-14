@@ -1,11 +1,12 @@
 <div data-role="header">
-  <%= link_to 'Back', menu_path %>
+    <%= link_to "log out", log_out_path %>
   <h1>Load Template</h1>
+  <%= link_to 'Back', menu_path %>
 </div>
  
 <div data-role="content">
 
-<%= form_tag(:action => 'create') do %>
+<%= form_tag(:action => 'create'), :html => {:'data-ajax' => false }  do %>
 <div id="home">
       
       <p>
@@ -15,17 +16,7 @@
       <p>
         <label>Select Template File:</label>
         <%= file_field_tag :csv_file  %>
-      </p>
-      
-      
-      <% if !@csv.blank?%>
-      
-      <%= @csv %>
-      
- <% end %>     
-      
-      
-       
+      </p>       
 
 <%= submit_tag "Upload"%>
 </div>
