@@ -1,0 +1,10 @@
+<div data-role="header">
+	<h1>Editing <%= @sponsor.supplier.company_name %></h1>
+<%= link_to 'Back', sponsors_path %>
+<%= link_to 'Show', @sponsor %>
+</div>
+
+<div data-role="content">
+<%= render 'form' %>
+</div>
+

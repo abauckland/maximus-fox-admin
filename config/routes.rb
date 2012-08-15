@@ -22,7 +22,8 @@ MobileTest::Application.routes.draw do
   resources :users
   resources :accounts  
 
-
+  resources :sponsors
+  resources :suppliers
 
 
 

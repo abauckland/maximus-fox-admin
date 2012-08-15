@@ -1,0 +1,23 @@
+<div data-role="header">
+  <%= link_to 'Back', menu_path %>
+  <h1>Suppliers</h1>
+  <%= link_to 'Add', new_supplier_path, "data-icon" => "plus", "class" => "ui-btn-right" %>
+</div>
+ 
+<div data-role="content">
+  <ul data-role="listview" data-inset="true" class="custom_list" >
+    <% @suppliers.each do |supplier| %>
+    
+    	<li>    			
+    		<div class="text_content">
+				<h3><%= supplier.company_name %></h3>
+			</div>
+        <div class="test3">
+        	<%= link_to '', edit_supplier_path(supplier), {"data-role"=>"button", "data-inline"=>"true", "data-icon" => "edit", "data-iconpos"=>"notext", "data-theme"=>"b", "class" => "edit_button"}%>
+			<%= link_to '', supplier_path(supplier), {:confirm => 'Are you sure?', :method => :delete, "data-role"=>"button", "data-inline"=>"true", "data-icon" => "delete", "data-iconpos"=>"notext", "data-theme"=>"b", "class" => "delete_button"}%>          
+		</div> 		
+
+    </li>
+    <% end %>
+  </ul>
+</div>

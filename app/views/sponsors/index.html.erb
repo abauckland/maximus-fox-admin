@@ -1,0 +1,28 @@
+<div data-role="header">
+  <%= link_to 'Back', menu_path %>
+  <h1>Sponsors</h1>
+  <%= link_to 'Add', new_sponsor_path, "data-icon" => "plus", "class" => "ui-btn-right" %>
+
+</div>
+ 
+<div data-role="content">
+  <ul data-role="listview" data-inset="true" class="custom_list" >
+    <% @sponsors.each do |sponsor| %>
+    
+    	<li>    			
+    		<div class="text_content">
+				<h3><%= sponsor.supplier.company_name %></h3>
+				<p><%= sponsor.supplier.www %></p>
+				<p><%= sponsor.subsection.subsection_full_code_and_title %></p>
+			</div>
+        <div class="test3">
+       	<%= link_to '', "http://#{sponsor.supplier.www}", {:target => 'blank', "data-role"=>"button", "data-inline"=>"true", "data-icon" => "search", "data-iconpos"=>"notext", "data-theme"=>"b", "class" => "edit_button"}%>
+       	<%= link_to '', edit_sponsor_path(sponsor), {"data-role"=>"button", "data-inline"=>"true", "data-icon" => "edit", "data-iconpos"=>"notext", "data-theme"=>"b", "class" => "edit_button"}%>
+			<%= link_to '', sponsor_path(sponsor), {:confirm => 'Are you sure?', :method => :delete, "data-role"=>"button", "data-inline"=>"true", "data-icon" => "delete", "data-iconpos"=>"notext", "data-theme"=>"b", "class" => "delete_button"}%>          
+		</div> 		
+
+    </li>
+    <% end %>
+  </ul>
+</div>
+

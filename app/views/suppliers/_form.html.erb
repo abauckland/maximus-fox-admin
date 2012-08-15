@@ -1,0 +1,31 @@
+<%= form_for @supplier, :html => {:'data-ajax' => false }  do |f| %>
+  <% if @supplier.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@supplier.errors.count, "error") %> prohibited this supplier from being saved:</h2>
+
+      <ul>
+      <% @supplier.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :company_name %>
+    <%= f.text_field :company_name  %>
+  </div>
+  <div class="field">
+    <%= f.label :www %>
+    <%= f.text_field :www %>
+  </div>
+  <div class="field">
+    <%= f.label :photo %>
+  	<%= f.file_field "photo"%>
+  	
+  	<%= @supplier.photo_file_name%>
+  </div>   
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
