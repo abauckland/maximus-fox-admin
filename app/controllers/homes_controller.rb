@@ -1,8 +1,8 @@
 class HomesController < ApplicationController
 
-before_filter :require_user, :except => [:index]
+before_filter :require_user, :except => [:log_in]
 
-  def index
+  def log_in
    
   end
 
