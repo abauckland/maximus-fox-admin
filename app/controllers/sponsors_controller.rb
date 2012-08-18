@@ -1,4 +1,7 @@
 class SponsorsController < ApplicationController
+
+before_filter :require_user
+
   # GET /sponsors
   # GET /sponsors.json
   def index

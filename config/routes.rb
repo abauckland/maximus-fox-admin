@@ -1,4 +1,6 @@
 MobileTest::Application.routes.draw do
+  get "password_resets/new"
+
   root :to => 'homes#log_in', :as => "log_in" 
   
   get "log_out" => "sessions#destroy", :as => "log_out"
@@ -25,7 +27,7 @@ MobileTest::Application.routes.draw do
   resources :sponsors
   resources :suppliers
 
-
+  resources :password_resets
 
 
   # The priority is based upon order of creation:

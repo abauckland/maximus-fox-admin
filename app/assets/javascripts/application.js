@@ -14,7 +14,6 @@
 //= require posts.js
 //= require jquery_ujs
 //= require jquery.mobile
-//= require nicEdit
 
 
 //following jquery loads after DOM is ready

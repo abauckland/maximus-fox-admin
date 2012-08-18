@@ -1,19 +1,15 @@
 <div data-role="header">
-  <h1>Welcome</h1>
+  <h1><%= image_tag ("specright_logo.png"), :width => 108, :height=> 33%></h1>
+  <%= link_to "forgotten password?", new_password_reset_path %>
 </div>
  
 <div data-role="content">
+	<h3 id="notice" style="color:orange"><%= notice %></h3>
 	<%= form_tag sessions_path do %>
-				<div style="padding:10px 20px;">
-				  <h3>Please sign in</h3>     
-
 		<%= text_field_tag :email, params[:email], :id=>"login_email", :placeholder => "email" %>  
-
 		<%= password_field_tag :password, params[:password], :id=>"password", :placeholder => "password", "data-theme"=>"a", "class"=>"ui-input-text ui-body-a ui-corner-all ui-shadow-inset" %>  
-             
-
 		<%= submit_tag 'Sign in', :class => "login_submit", "data-theme" => "b" %> 
-				</div>
+
     <% end %> 
 </div>
 

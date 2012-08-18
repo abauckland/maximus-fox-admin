@@ -1,5 +1,7 @@
 class DashboardsController < ApplicationController
 
+before_filter :require_user
+
   def index
     @speclines = Specline.count
     @recent_speclines = Specline.where('created_at > ?', 1.day.ago).count

@@ -1,4 +1,6 @@
 class Txt5sController < ApplicationController
+
+before_filter :require_user
   # GET /txt5s
   # GET /txt5s.json
   def index

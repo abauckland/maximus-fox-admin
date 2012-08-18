@@ -1,5 +1,7 @@
 class CommentsController < ApplicationController
 
+before_filter :require_user
+
   def index  
     @comments = Comment.includes(:post).where(:checked => false)
 
@@ -13,6 +15,7 @@ def checked
     @comment = Comment.find(params[:id])
     @comment.checked = true
     @comment.save
+    
     respond_to do |format|
       format.html { redirect_to comments_url }
       format.json { head :ok }

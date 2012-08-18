@@ -1,4 +1,7 @@
 class Txt4sController < ApplicationController
+
+before_filter :require_user
+
   # GET /txt4s
   # GET /txt4s.json
   def index

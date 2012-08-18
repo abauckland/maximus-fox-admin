@@ -1,6 +1,6 @@
 class SuppliersController < ApplicationController
   
-
+before_filter :require_user
 
   # GET /suppliers
   # GET /suppliers.json

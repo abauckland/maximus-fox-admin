@@ -1,4 +1,7 @@
 class ClausetitlesController < ApplicationController
+
+before_filter :require_user
+
   # GET /clausetitles
   # GET /clausetitles.json
   def index
@@ -13,65 +16,6 @@ class ClausetitlesController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @clausetitles }
-    end
-  end
-
-  # GET /clausetitles/1
-  # GET /clausetitles/1.json
-  def show
-    @clausetitle = Clausetitle.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @clausetitle }
-    end
-  end
-
-  # GET /clausetitles/new
-  # GET /clausetitles/new.json
-  def new
-    @clausetitle = Clausetitle.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @clausetitle }
-    end
-  end
-
-  # GET /clausetitles/1/edit
-  def edit
-    @clausetitle = Clausetitle.find(params[:id])
-  end
-
-  # POST /clausetitles
-  # POST /clausetitles.json
-  def create
-    @clausetitle = Clausetitle.new(params[:clausetitle])
-
-    respond_to do |format|
-      if @clausetitle.save
-        format.html { redirect_to @clausetitle, notice: 'clausetitle was successfully created.' }
-        format.json { render json: @clausetitle, status: :created, location: @clausetitle }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @clausetitle.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PUT /clausetitles/1
-  # PUT /clausetitles/1.json
-  def update
-    @clausetitle = Clausetitle.find(params[:id])
-
-    respond_to do |format|
-      if @clausetitle.update_attributes(params[:clausetitle])
-        format.html { redirect_to @clausetitle, notice: 'clausetitle was successfully updated.' }
-        format.json { head :ok }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @clausetitle.errors, status: :unprocessable_entity }
-      end
     end
   end
 

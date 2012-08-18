@@ -1,5 +1,7 @@
 class TemplatesController < ApplicationController
 
+before_filter :require_user
+
   def new
     @projects = Project.where('company_id = ?', 1)
   end  
