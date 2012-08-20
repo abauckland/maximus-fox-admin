@@ -1,0 +1,23 @@
+<div data-role="header">
+    <%= link_to "log out", log_out_path %>
+  <h1>Add Guidance Note</h1>
+<%= link_to "Back", menu_path, "data-theme"=>"b" %>	
+</div>
+<div data-role="content">
+<%= form_for @guidenote do |f| %>
+
+	<div class="field">
+		<h3>Select Clause</h3>                          
+		<%= select_tag "id", options_from_collection_for_select(@clauses, :id, :clause_section_full_title) %>    
+	</div>
+	
+	<div class="field">
+		<h3>Insert text</h3> 
+		<%= f.text_area "text"%>
+	</div>
+
+<%= f.submit 'Create Clause Guidance Note'%>
+
+<% end %>
+
+</div>

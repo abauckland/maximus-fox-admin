@@ -1,0 +1,21 @@
+<div data-role="header">
+	<h1>Guidenote <%= @guidenote.id %></h1>
+<%= link_to 'Back', new_guidenote_path %>
+
+</div>
+
+<div data-role="content">
+<p id="notice"><%= notice %></p>
+
+<% @clauses.each do |clause|%>
+<h2>
+  <%= @clause.title %>
+</h2>
+<%end%>
+
+<p>
+  <%= @guidenote.text.html_safe %>
+</p>
+
+</div>
+

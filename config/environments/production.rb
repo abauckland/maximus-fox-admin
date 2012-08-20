@@ -67,4 +67,8 @@ MobileTest::Application.configure do
   
 #custom added for password reset action
   config.action_mailer.default_url_options = { :host => 'admin.specright.co.uk' }
+  config.action_mailer.sendmail_settings = {
+          :location => '/usr/sbin/sendmail',
+          :arguments => '-i'
+        }
 end

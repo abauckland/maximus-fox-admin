@@ -14,6 +14,7 @@ MobileTest::Application.routes.draw do
   resources :sessions
   resources :dashboards
   resources :guidepdfs
+  resources :guidenotes
   
   resources :guidenotes
   resources :txt3s
@@ -21,8 +22,13 @@ MobileTest::Application.routes.draw do
   resources :txt5s
   resources :clausetitles
   resources :templates
-  resources :users
-  resources :accounts  
+  resources :users do
+    get 'unlock', :on => :member
+  end
+  resources :accounts do
+    get 'add_licence', :on => :member
+    get 'minus_licence', :on => :member
+  end  
 
   resources :sponsors
   resources :suppliers

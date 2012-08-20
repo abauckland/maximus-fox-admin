@@ -9,7 +9,7 @@
 
 		<% @users.each do |user| %>
     		<li data-icon="check">   			    	    		
-				<%= link_to '', nil, {:confirm => 'Are you sure?', "data-role"=>"button", "data-theme"=> "c"} do %>          		
+				<%= link_to unlock_user_path(user) do %>          		
 					<h3><%= user.first_name %> <%= user.surname %></h3>
 					<p><%= user.email %></p>
 					<p><%= user.company.company_name %></p>

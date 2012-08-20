@@ -9,5 +9,14 @@ class UsersController < ApplicationController
       format.json { render json: @users }
     end
   end
+  
+  def unlock
+    @licence = Licence.where('user_id =?', params[:id]).first    
+    @licence.locked_at = 0
+    @licence.save
 
+    redirect_to users_path
+  
+  end 
+   
 end

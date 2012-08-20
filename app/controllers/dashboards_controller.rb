@@ -57,6 +57,12 @@ before_filter :require_user
     end
         
     @clausetitles = Clausetitle.count
+    
+    @guidepdfs = Guidedownload.count
+    @recent_guidepdfs = Guidedownload.where('created_at > ?', 1.day.ago).count
+    if @recent_guidepdfs.blank?
+      @recent_guidepdfs = 0
+    end
   end
 
 end

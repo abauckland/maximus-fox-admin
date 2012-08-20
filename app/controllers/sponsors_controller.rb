@@ -43,7 +43,11 @@ before_filter :require_user
   # POST /sponsors
   # POST /sponsors.json
   def create
-    @sponsor = Sponsor.new(params[:sponsor])
+    @sponsor = Sponsor.new do |n|
+    n.supplier_id = params[:sponsor][:supplier_id]
+    n.subsection_id = params[:sponsor][:subsetion_id]
+    n.www = params[:sponsor][:www]
+    end
 
     respond_to do |format|
       if @sponsor.save

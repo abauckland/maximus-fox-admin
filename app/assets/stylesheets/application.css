@@ -10,6 +10,8 @@
  *
  *= require_self
  *= require specright_admin.css
+ *= require posts.css
+ *= require accounts.css
  *= require jquery.mobile
  *= require_tree .
  */
