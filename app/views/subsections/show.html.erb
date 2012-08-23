@@ -1,0 +1,19 @@
+<div data-role="header">
+    <%= link_to "log out", log_out_path %>
+  <h1>Select Subsection</h1>
+<%= link_to "Back", menu_path, "data-theme"=>"b" %>	
+</div>
+
+<div data-role="content">
+  <ul data-role="listview" data-inset="true">
+    <% @subsections.each do |subsection| %>    			
+    		<li data-icon="arrow-r">   			    	    		
+				<%= link_to(:controller => 'clauses', :action => 'show', :id => subsection.id, :project_id => @current_project_id) do %>
+				<%= subsection.subsection_full_code_and_title%>
+				<%end%>          		
+			</li>
+    <% end %>
+  </ul>
+
+
+</div>

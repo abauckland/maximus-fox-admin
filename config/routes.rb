@@ -16,6 +16,13 @@ MobileTest::Application.routes.draw do
   resources :guidepdfs
   resources :guidenotes
   
+  resources :sections
+  resources :subsections
+  resources :clauses do
+    get 'show_guide', :on =>:member
+    get 'delete_guidenote', :on =>:member
+  end
+  
   resources :guidenotes
   resources :txt3s
   resources :txt4s

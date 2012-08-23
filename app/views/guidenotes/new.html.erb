@@ -5,11 +5,8 @@
 </div>
 <div data-role="content">
 <%= form_for @guidenote do |f| %>
-
-	<div class="field">
-		<h3>Select Clause</h3>                          
-		<%= select_tag "id", options_from_collection_for_select(@clauses, :id, :clause_section_full_title) %>    
-	</div>
+                        
+		<%= hidden_field_tag 'clause_id', @current_clause %>    
 	
 	<div class="field">
 		<h3>Insert text</h3> 

@@ -1,0 +1,25 @@
+<div data-role="header">
+    <%= link_to "log out", log_out_path %>
+  <h1><%= @clause.clause_section_full_title%></h1>
+<%= link_to 'Back', {:controller => 'clauses', :action => 'show', :id => @current_subsection_id, :project_id => @current_project_id}, {"data-theme"=>"b"} %>
+</div>
+
+<div data-role="content">
+	<div class="field">
+		<%= @clause.guidenote.text.html_safe %> 
+	</div>
+	<div data-role="controlgroup">
+		<%= link_to 'edit guidance for current clause only', nil, {"data-role"=>"button"} %>
+		<%= link_to 'edit guidance for all clauses', {:controller => 'guidenotes', :action => 'edit', :id => @clause.guidenote_id, :clause_id => @clause.id, :subsection_id => @current_subsection_id, :project_id => @current_project_id}, {"data-role"=>"button"} %>
+		<%= link_to 'delete', {:action => 'delete_guidenote', :id => @clause.id, :subsection_id => @current_subsection_id, :project_id => @current_project_id}, {"data-role"=>"button"} %>
+	</div>
+	</br>
+	</br>
+	<h3>Guidance Note also used in clauses:</h3>
+	<ul>
+		<% @guidenote_clauses.each do |clause|%>
+		<li><%= clause.clause_section_full_title %></li>
+		<% end %> 
+	</ul>
+	
+</div>
