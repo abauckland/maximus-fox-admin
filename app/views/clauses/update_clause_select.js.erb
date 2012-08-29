@@ -1,0 +1,4 @@
+
+var updated_clone_clause_select = "<%= escape_javascript(select_tag "guidenote_id", options_from_collection_for_select(@clone_clauses, :id, :id, @current_clone_clause))%>";
+
+$('select#guidenote_id).replaceWith(updated_clone_clause_select);

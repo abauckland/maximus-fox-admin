@@ -1,11 +1,8 @@
 $(document).ready(function(){
 
-$(function(){                                                      
-  $('.custom_list .ui-block-a').css({'width':(($(window).width())-350)+"px"});                                                                 
-  $(window).resize(function(){                                     
-  $('.custom_list .ui-block-a').css({'width':(($(window).width ())-350)+"px"});
-  });
+$("#clone_template_id").change(function() {
+    var template = $('select#clone_template_id :selected').val();
+    jQuery.get('/clauses/'+ template + '/update_clause_select');
 });
-
  
 });

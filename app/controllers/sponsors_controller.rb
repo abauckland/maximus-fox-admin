@@ -45,7 +45,7 @@ before_filter :require_user
   def create
     @sponsor = Sponsor.new do |n|
     n.supplier_id = params[:sponsor][:supplier_id]
-    n.subsection_id = params[:sponsor][:subsetion_id]
+    n.subsection_id = params[:sponsor][:subsection_id]
     n.www = params[:sponsor][:www]
     end
 

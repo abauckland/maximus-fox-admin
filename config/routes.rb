@@ -21,9 +21,13 @@ MobileTest::Application.routes.draw do
   resources :clauses do
     get 'show_guide', :on =>:member
     get 'delete_guidenote', :on =>:member
+    get 'clone_subsection', :on =>:member
+    get 'clone_clause', :on =>:member
+    get 'edit_guidenote', :on =>:member
+  end 
+  resources :guidenotes do
+      get 'single_edit', :on =>:member
   end
-  
-  resources :guidenotes
   resources :txt3s
   resources :txt4s
   resources :txt5s

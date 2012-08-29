@@ -16,7 +16,7 @@ before_filter :require_user
   def new
     @current_project_id = params[:project_id]
     @current_subsection_id = params[:subsection_id]
-    @current_clause = params[:clause_id]
+    @current_clause_id = params[:clause_id]
     
     @clauses = Clause.joins(:clauseref, :speclines).where('speclines.project_id' => @current_project_id, 'clauserefs.subsection_id' => @current_subsection_id).uniq
     @guidenote = Guidenote.new
@@ -33,17 +33,23 @@ before_filter :require_user
     @current_subsection_id = params[:subsection_id]
     @current_clause = params[:clause_id]
     
-    @guidenote = Guidenote.create(params[:guidenote])
+    @guidenote = Guidenote.new do |n|
+      n.text = params[:guidenote][:text]
+    end
+    
+    if @guidenote.save
 
-    clause = Clause.where(:id => params[:id]).first 
-    clause.guidenote_id = @guidenote.id
-    clause.save
+      clause = Clause.where(:id => params[:clause_id]).first 
+      clause.guidenote_id = @guidenote.id
+      clause.save
  
-        respond_to do |format|
-      if @post.save
-        format.html { redirect_to @guidenote, notice: 'Guidance Note was successfully created.' }
-        format.json { render json: @guidenote, status: :created, location: @guidenote }
-      else
+      respond_to do |format|
+
+        format.html {  redirect_to(:controller => 'clauses', :action => 'show', :id => params[:subsection_id], :project_id => params[:project_id], notice: 'Guidance Note was successfully created.') }
+        format.json
+      end
+    else
+      respond_to do |format|
         format.html { render action: "new" }
         format.json { render json: @guidenote.errors, status: :unprocessable_entity }
       end
@@ -59,7 +65,51 @@ before_filter :require_user
   end
   
   def update
+    @current_project_id = params[:project_id]
+    @current_subsection_id = params[:subsection_id]
+    @current_clause = params[:clause_id]
     
+    @guidenote = Guidenote.where(:id => params[:id]).first
+    @guidenote.text = params[:guidenote][:text]
+    
+    if @guidenote.save
+ 
+      respond_to do |format|
+
+        format.html {  redirect_to(:controller => 'clauses', :action => 'show', :id => params[:subsection_id], :project_id => params[:project_id], notice: 'Guidance Note was successfully created.') }
+        format.json
+      end
+    else
+      respond_to do |format|
+        format.html { render action: "edit" }
+        format.json { render json: @guidenote.errors, status: :unprocessable_entity }
+      end
+    end     
   end 
+  
+  def single_edit
+    @current_project_id = params[:project_id]
+    @current_subsection_id = params[:subsection_id]
+    @current_clause_id = params[:clause_id]
+    
+    @guidenote_clauses = Clause.where('guidenote_id = ? AND id != ?', params[:id], params[:clause_id])
+    if @guidenote_clauses
+
+        #create new guidenote and save
+      @current_guidenote = Guidenote.where(:id => params[:id]).first
+      @new_guidenote = Guidenote.new do |n|
+        n.text = @current_guidenote.text
+      end 
+      @new_guidenote.save
+      
+      @clause = Clause.where(:id => params[:clause_id]).first
+      @clause.guidenote_id = @new_guidenote.id
+      @clause.save
+      
+      redirect_to(:action => 'edit', :id => @new_guidenote.id, :clause_id => @current_clause_id, :subsection_id => @current_subsection_id, :project_id => @current_project_id)
+    else 
+      redirect_to(:action => 'edit', :id => params[:id], :clause_id => @current_clause_id, :subsection_id => @current_subsection_id, :project_id => @current_project_id)          
+    end      
+  end
  
 end

@@ -1,10 +1,13 @@
 <div data-role="header">
     <%= link_to "log out", log_out_path %>
-  <h1>Select Subsection</h1>
+  <h1>Select Clause to Update</h1>
 <%= link_to 'Back', subsection_path(@current_project_id), "data-theme"=>"b"  %>
 </div>
 
 <div data-role="content">
+
+	<p id="notice"><%= notice %></p>
+
   <ul data-role="listview" data-inset="true" class="custom_list" >
     <% @clauses.each do |clause| %> 
     	<% if clause.guidenote_id == 1 %>
@@ -13,7 +16,7 @@
 				<%= clause.clause_section_full_title %>
 				</div>
 				<div class="test3">
-        			<%= link_to '', (nil), {"data-role"=>"button", "data-inline"=>"true", "data-icon" => "refresh", "data-iconpos"=>"notext", "data-theme"=>"b"}%>					
+        			<%= link_to '', {:controller => 'clauses', :action => 'clone_subsection', :id => clause.id, :subsection_id => @current_subsection_id, :project_id => @current_project_id}, {"data-role"=>"button", "data-inline"=>"true", "data-icon" => "refresh", "data-iconpos"=>"notext", "data-theme"=>"b"}%>					
 					<%= link_to '', {:controller => 'guidenotes', :action => 'new', :clause_id => clause.id, :subsection_id => @current_subsection_id, :project_id => @current_project_id}, {"data-role"=>"button", "data-inline"=>"true", "data-icon" => "add", "data-iconpos"=>"notext", "data-theme"=> "b"}%>          		
 				</div>				          		
 			</li>

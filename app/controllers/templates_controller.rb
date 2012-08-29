@@ -9,9 +9,10 @@ before_filter :require_user
   
   def create
 
- 
-   @projects = Project.where('company_id = ?', 1)
+ #used for next view only
+       @projects = Project.where('company_id = ?', 1)
    
+  #load CSV
   require 'csv'
   
   csv = CSV.read(params[:csv_file], {:headers => true, }) 

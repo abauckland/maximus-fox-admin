@@ -2,11 +2,13 @@ class Supplier < ActiveRecord::Base
   has_many :sponsors
   has_attached_file :photo
   
-  Paperclip.interpolates :normalized_video_file_name do |attachment, style|
+  
+  
+  Paperclip.interpolates :normalized_image_file_name do |attachment, style|
     attachment.instance.normalized_image_file_name
   end
 
-  def normalized_video_file_name
+  def normalized_image_file_name
     "#{self.id}-#{self.video_image_name.gsub( /[^a-zA-Z0-9_\.]/, '_')}"
   end
 

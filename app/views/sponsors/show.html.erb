@@ -1,5 +1,5 @@
 <div data-role="header">
-	<h1><%= @sponsor.company_name %></h1>
+	<h1><%= @sponsor.supplier.company_name %></h1>
 <%= link_to 'Back', sponsors_path %>
 <%= link_to 'Edit', edit_sponsor_path(@sponsor) %>
 </div>
@@ -7,8 +7,8 @@
 <div data-role="content">
 <p id="notice"><%= notice %></p>
 
-<p><%= sponsor.supplier.www %></p>
-<p><%= sponsor.subsection.subsection_full_code_and_title %></p>
+<p><%= @sponsor.www %></p>
+<p><%= @sponsor.subsection.subsection_full_code_and_title %></p>
 
 </div>
 

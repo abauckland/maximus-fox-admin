@@ -43,7 +43,11 @@ before_filter :require_user
   # POST /suppliers
   # POST /suppliers.json
   def create
-    @supplier = Supplier.new(params[:supplier])
+    @supplier = Supplier.new do |n|
+     n.company_name = params[:supplier][:company_name]
+     n.www = params[:supplier][:www]
+     n.photo = params[:supplier][:photo]
+    end
 
     respond_to do |format|
       if @supplier.save
@@ -60,9 +64,12 @@ before_filter :require_user
   # PUT /suppliers/1.json
   def update
     @supplier = Supplier.find(params[:id])
-
+     @supplier.company_name = params[:supplier][:company_name]
+     @supplier.www = params[:supplier][:www]
+     @supplier.photo = params[:supplier][:photo]
+     
     respond_to do |format|
-      if @supplier.update_attributes(params[:supplier])
+      if @supplier.save
         format.html { redirect_to @supplier, notice: 'Supplier was successfully updated.' }
         format.json { head :ok }
       else

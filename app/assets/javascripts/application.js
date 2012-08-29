@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require posts.js
+//= require clauses.js
 //= require jquery_ujs
 //= require jquery.mobile
 
@@ -26,6 +27,11 @@ $(function(){
   $(window).resize(function(){                                     
   $('ul #text_content').css({'width':(($(window).width ())-230)+"px"});
   });
+});
+ 
+ $("select#subsection_id").change(function() {
+    var subsection = $('select#subsection_id :selected').val();
+    jQuery.get('/clauses/'+ template + '/update_clause_select');
 });
  
   

@@ -9,7 +9,7 @@
 		<%= @clause.guidenote.text.html_safe %> 
 	</div>
 	<div data-role="controlgroup">
-		<%= link_to 'edit guidance for current clause only', nil, {"data-role"=>"button"} %>
+		<%= link_to 'edit guidance for current clause only', {:controller => 'guidenotes', :action => 'single_edit', :id => @clause.guidenote_id, :clause_id => @clause.id, :subsection_id => @current_subsection_id, :project_id => @current_project_id}, {"data-role"=>"button"} %>
 		<%= link_to 'edit guidance for all clauses', {:controller => 'guidenotes', :action => 'edit', :id => @clause.guidenote_id, :clause_id => @clause.id, :subsection_id => @current_subsection_id, :project_id => @current_project_id}, {"data-role"=>"button"} %>
 		<%= link_to 'delete', {:action => 'delete_guidenote', :id => @clause.id, :subsection_id => @current_subsection_id, :project_id => @current_project_id}, {"data-role"=>"button"} %>
 	</div>

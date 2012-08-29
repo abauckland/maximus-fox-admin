@@ -1,0 +1,20 @@
+<div data-role="header">
+    <%= link_to "log out", log_out_path %>
+  <h1>Select Clause to Copy</h1>
+<%= link_to 'Cancel', {:controller => 'clauses', :action => 'show', :id => @current_subsection_id, :project_id => @current_project_id}, {"data-theme"=>"b"} %>
+
+</div>
+<div data-role="content">
+
+
+  <ul data-role="listview" data-inset="true">
+    <% @clone_clauses.each do |clause| %>    			
+    		<li data-icon="arrow-r">   			    	    		
+				<%= link_to(:controller => 'clauses', :action => 'edit_guidenote', :id => clause.guidenote_id, :clause_id => @current_clause_id, :subsection_id => @current_subsection_id, :project_id => @current_project_id) do %>
+					<%= clause.clause_section_full_title %>
+				<%end%>          		
+			</li>
+    <% end %>
+  </ul>
+
+</div>

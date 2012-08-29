@@ -1,4 +1,5 @@
 <%= form_for(@guidenote) do |f| %>
+
   <% if @guidenote.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@guidenote.errors.count, "error") %> prohibited this post from being saved:</h2>
@@ -10,12 +11,16 @@
       </ul>
     </div>
   <% end %>
+                        
+		<%= hidden_field_tag 'clause_id', @current_clause_id %>
+		<%= hidden_field_tag 'subsection_id', @current_subsection_id %>
+		<%= hidden_field_tag 'project_id', @current_project_id %>    
+	
+	<div class="field">
+		<h3>Insert text</h3> 
+		<%= f.text_area "text"%>
+	</div>
 
-  <div class="field">
-    <%= f.label :text %><br />
-    <%= f.text_area :text %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<%= f.submit 'Save Clause Guidance Note'%>
+
 <% end %>
