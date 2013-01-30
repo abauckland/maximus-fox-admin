@@ -15,7 +15,6 @@ belongs_to :txt6
 belongs_to :linetype
 
 
-
 #virtual attribute
 def txt3_text
   txt3.text if txt3

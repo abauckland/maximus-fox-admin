@@ -24,7 +24,7 @@ MobileTest::Application.routes.draw do
     get 'clone_subsection', :on =>:member
     get 'clone_clause', :on =>:member
     get 'edit_guidenote', :on =>:member
-  end 
+  end
   resources :guidenotes do
       get 'single_edit', :on =>:member
   end
@@ -32,7 +32,16 @@ MobileTest::Application.routes.draw do
   resources :txt4s
   resources :txt5s
   resources :clausetitles
-  resources :templates
+  
+  resources :templates do
+    collection do
+      post "import"
+      get "export"
+    end
+  end
+   
+     
+  
   resources :users do
     get 'unlock', :on => :member
   end
