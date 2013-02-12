@@ -1,0 +1,24 @@
+<div data-role="header">
+  <%= link_to "log out", log_out_path %>
+  <h1>Check Comments</h1>
+	<%= link_to "Menu", menu_path %>
+</div>
+
+<div data-role="content">
+	<ul data-role="listview" data-inset="true" class="custom_list" >
+
+		<% @guides.each do |guide| %>
+    		<li>    			
+    			<div>
+					<h3><%= guide.title %></h3>
+				</div>			
+				<div>        
+					<span class="ui-li-count" style="color: #FFFFFF; background: #00407f; font-size:11px;"><%= guide.guidedownloads.count %></span>
+					<span class="ui-li-count" style="color: #FFFFFF; background: #90307f; font-size:11px;"><%= guide.guidedownloads.count %></span>
+ 				</div>			    	    
+			</li>						
+		<% end %> 
+	</ul>
+</div>
+
+

@@ -36,8 +36,10 @@ before_filter :require_user
     @recent_users = User.where('created_at > ?', 1.day.ago).count
     if @recent_users.blank?
       @recent_users = 0
-    end 
-       
+    end
+    #first 2 company_ids are specright admin company_ids 
+    @users_24 = Licence.joins(:user).where('last_sign_in > ? AND users.company_id > ?', 1.day.ago, 2).count
+           
     @txt3s = Txt3.count
     @recent_txt3s = Txt3.where('created_at > ?', 1.day.ago).count
     if @recent_txt3s.blank?
@@ -62,7 +64,10 @@ before_filter :require_user
     @recent_guidepdfs = Guidedownload.where('created_at > ?', 1.day.ago).count
     if @recent_guidepdfs.blank?
       @recent_guidepdfs = 0
-    end
+    end    
+    @download_users = Guidedownload.all.collect{|i| i.ipaddress}.uniq.count    
+    @av_download = @guidepdfs.to_f/@download_users.to_f 
+    
   end
 
 end

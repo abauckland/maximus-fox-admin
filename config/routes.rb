@@ -15,6 +15,7 @@ MobileTest::Application.routes.draw do
   resources :dashboards
   resources :guidepdfs
   resources :guidenotes
+  resources :guidedownloads
   
   resources :sections
   resources :subsections
