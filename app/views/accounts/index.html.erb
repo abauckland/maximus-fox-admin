@@ -12,6 +12,9 @@
     	<li>    			
     		<div>
 				<h3><%= account.company.company_name %></h3>
+				<% account.company.users.each do |user| %>
+				<p><%= user.email %></p>
+				<% end %>
 			</div>
 			
 		<div>        
