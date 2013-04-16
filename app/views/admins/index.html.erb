@@ -1,0 +1,21 @@
+<div data-role="header">
+  <%= link_to "log out", log_out_path, "data-theme"=>"b" %>
+  <h1>Select Company</h1>
+  <h4>Current company: <%= @user.company.company_name %></h4>
+	<%= link_to "Menu", menu_path, "data-theme"=>"b" %>	
+</div>
+
+<div data-role="content">
+	<ul data-role="listview" data-inset="true">
+
+		<% @companies.each do |company| %>
+    		<li data-icon="arrow">   			    	    		
+				<%= link_to change_admin_path(company.id) do %>          		
+					<h3><%= company.company_name  %></h3>
+				<% end %> 
+			</li>						
+		<% end %> 
+	</ul>
+</div>
+
+

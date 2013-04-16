@@ -17,6 +17,24 @@ class UsersController < ApplicationController
 
     redirect_to users_path
   
-  end 
+  end
+  
+  def activity    
+    @users = User.includes(:licence, :company).all.order('licences.last_sign_in')    
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @users }
+    end  
+  end
+  
+  def access   
+    @companies = Company.all 
+  end
+  
+  def update_access
+    @user = User.where(:id => 35).first       
+    @user.company_id = params[:id]
+    @user.save
+  end     
    
 end

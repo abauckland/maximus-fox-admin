@@ -14,6 +14,7 @@
 //= require posts.js
 //= require clauses.js
 //= require jquery_ujs
+//= require jquery-ui-1.8.9.custom.min.js
 //= require jquery.mobile
 
 

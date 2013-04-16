@@ -40,8 +40,11 @@ MobileTest::Application.routes.draw do
       get "export"
     end
   end
-   
-     
+  
+  resources :activities
+  resources :admins do
+    get 'change', :on => :member
+  end      
   
   resources :users do
     get 'unlock', :on => :member
