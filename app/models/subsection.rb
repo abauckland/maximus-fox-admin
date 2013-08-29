@@ -4,6 +4,7 @@ has_many :clauserefs
 has_many :sponsors
 belongs_to :section
 belongs_to :guidepdf
+has_many :standardsubsections
 
 def subsection_code
     section.ref.to_s + sprintf("%02d", ref).to_s

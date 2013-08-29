@@ -1,0 +1,18 @@
+
+<%= link_to "log out", log_out_path %>
+Import Standards
+<%= link_to 'Back', menu_path %>
+ 
+<%= form_tag standards_path, multipart: true, :'data-ajax' => false do %>
+
+<div id="home">
+            
+      <p>
+        <label>Select Template File:</label>
+        <%= file_field_tag :file %>
+      </p>       
+
+ <%= submit_tag "Import" %>
+</div>
+<% end %>
+
