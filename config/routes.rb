@@ -61,6 +61,11 @@ MobileTest::Application.routes.draw do
 
   resources :password_resets
 
+  resources :exports do 
+    get :clausetype_4_download, :on => :member
+    get :clausetype_5_download, :on => :member
+  end
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
