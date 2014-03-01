@@ -2,7 +2,7 @@ class Txt4 < ActiveRecord::Base
 #associations
 has_many :speclines
 has_many :changes
-
+attr_accessible :text
 #validation                                                 
 #validates_uniqueness_of :id
 #validates_uniqueness_of :text
