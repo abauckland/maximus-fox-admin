@@ -127,15 +127,15 @@ end
   end
   
   def clausetype_update
-    
-    clausetypes = [2, 3, 4, 5, 6]
+
+    clausetypes = [6, 5, 4, 3]
     clausetypes.each do |type|
       clauserefs = Clauseref.where(:clausetype_id => type)
-      
-      clauseref.each do |ref|
-        type.to_i
-        ref.clausetype_id = type + 1
-        ref.save
+      type_update = type + 1
+      clauserefs.each do |ref|
+       
+        ref.clausetype_id = type_update
+        ref.save(:validate => false)
       end      
     end    
   end
